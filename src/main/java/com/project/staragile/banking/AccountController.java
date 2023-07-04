@@ -23,7 +23,7 @@ public class AccountController {
 	
 	@GetMapping("/sayHello")
 	public String sayHello() {
-		return "Hello from CBS Bank";
+		return "Hello from @CBS Bank";
 	}
 	
 	
