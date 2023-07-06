@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: biplab-deploy
+  labels:
+    app: biplab-finance-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: biplab-finance-app
+  template:
+    metadata:
+      labels:
+        app: biplab-finance-app
+    spec:
+      containers:
+      - name: biplab-finance-container
+        image: biplabstudy/biplab-insurence-app
+        ports:
+        - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: biplab-finance-service
+  labels:
+    app: biplab-finance-app
+spec:
+  selector:
+    app: biplab-finance-app
+
+  type: NodePort
+  ports:
+  - nodePort: 31000
+    port: 80
+    targetPort: 8081
