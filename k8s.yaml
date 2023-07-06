@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: biplab-deploy
+  name: biplab-banking
   labels:
     app: biplab-banking-app
 spec:
@@ -32,6 +32,6 @@ spec:
 
   type: NodePort
   ports:
-  - nodePort: 31000
+  - nodePort: 30100
     port: 80
     targetPort: 8081
